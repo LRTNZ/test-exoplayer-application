@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.google.android.exoplayer2.C;
@@ -259,6 +260,7 @@ public class App extends Activity implements Runnable {
      */
     void finishPlayer() {
 
+        subtitlesView.setVisibility(View.VISIBLE);
         exoPlayer.prepare(mediaSource, true, true);
         exoPlayer.setVolume(1f);
         playerView.setAlpha(1f);
