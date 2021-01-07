@@ -66,4 +66,5 @@ dependencies {
     implementation project(':exoplayer-library-smoothstreaming')
     implementation project(':exoplayer-library-ui')
     implementation project(':exoplayer-extension-cce')
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 }
