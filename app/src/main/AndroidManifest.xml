@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.LRTNZ.testvlcapplication">
+  package="com.LRTNZ.testExoplayerApplication">
 
   <uses-permission android:name="android.permission.INTERNET"/>
   <uses-feature android:name="android.software.leanback" android:required="true"/>
@@ -14,7 +14,7 @@
     android:theme="@style/AppTheme">
 
     <activity
-      android:name="App"
+      android:name="com.LRTNZ.testExoplayerApplication.App"
       android:configChanges="keyboard|keyboardHidden|navigation"
       android:label="Test VLC App"
       android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"

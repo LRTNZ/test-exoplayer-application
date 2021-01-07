@@ -1,2 +1,7 @@
 include ':app'
-rootProject.name='Test VLC Application'
+rootProject.name='Test Exoplayer Application'
+
+gradle.ext.exoplayerRoot = '../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed'
+//gradle.ext.exoplayerRoot = '../Exoplayer-Subtitles/ExoPlayer-release-v2'
+gradle.ext.exoplayerModulePrefix = 'exoplayer-'
+apply from: new File(gradle.ext.exoplayerRoot, 'core_settings.gradle')

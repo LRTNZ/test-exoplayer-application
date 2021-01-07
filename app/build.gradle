@@ -6,7 +6,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.LRTNZ.testvlcapplication"
+        applicationId "com.LRTNZ.testExoplayerApplication"
         minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
@@ -37,9 +37,18 @@ android {
         disable 'GoogleAppIndexingWarning','MissingTranslation','IconDensities'
     }
 
+    flavorDimensions "extensions"
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        pickFirst 'lib/x86/libc++_shared.so'
+        pickFirst 'lib/x86_64/libc++_shared.so'
+        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
+        pickFirst 'lib/arm64-v8a/libc++_shared.so'
     }
 
 }
@@ -51,4 +60,10 @@ dependencies {
     implementation 'androidx.leanback:leanback:1.0.0'
     // Logging tool wrapper used in the app, instead of the default logger.
     implementation 'com.jakewharton.timber:timber:4.7.1'
+        implementation project(':exoplayer-library-core')
+    implementation project(':exoplayer-library-dash')
+    implementation project(':exoplayer-library-hls')
+    implementation project(':exoplayer-library-smoothstreaming')
+    implementation project(':exoplayer-library-ui')
+    implementation project(':exoplayer-extension-cce')
 }

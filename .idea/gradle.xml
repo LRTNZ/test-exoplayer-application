@@ -1,15 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <compositeConfiguration>
-          <compositeBuild compositeDefinitionSource="SCRIPT" />
-        </compositeConfiguration>
+        <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/extensions/av1" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/extensions/cast" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/extensions/cce" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/extensions/cronet" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/extensions/ffmpeg" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/extensions/flac" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/extensions/gvr" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/extensions/ima" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/extensions/jobdispatcher" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/extensions/leanback" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/extensions/mediasession" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/extensions/okhttp" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/extensions/opus" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/extensions/rtmp" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/extensions/vp9" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/extensions/workmanager" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/library/all" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/library/core" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/library/dash" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/library/hls" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/library/smoothstreaming" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/library/ui" />
+            <option value="$PROJECT_DIR$/../Exoplayer-Subtitles/ExoPlayer-r2.11.8-fixed/testutils" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+          </set>
+        </option>
         <option name="resolveModulePerSourceSet" value="false" />
-        <option name="testRunner" value="PLATFORM" />
+        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>
