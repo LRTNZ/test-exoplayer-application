@@ -11,7 +11,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.DefaultLoadControl;
+import com.google.android.exoplayer2.ExoPlaybackException;
+import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.Format;
+import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.MergingMediaSource;
@@ -23,6 +26,8 @@ import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
+import java.io.IOException;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -123,6 +128,8 @@ public class App extends Activity implements Runnable {
         int currentWindows = 0;
         exoPlayer.seekTo(currentWindows, playbackPosition);
 
+        exoPlayer.addListener(new eventListener());
+
         this.datasourceFactory = buildDataSourceFactory();
         this.playerView = findViewById(R.id.video_surface);
         playerView.setPlayer(exoPlayer);
@@ -150,6 +157,54 @@ public class App extends Activity implements Runnable {
         runAutomaticTimer = true;
         runTimedStreamChange();
     }
+
+    private static class eventListener implements Player.EventListener {
+
+        public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+
+            String playbackStateString;
+
+            switch (playbackState) {
+
+                case ExoPlayer.STATE_IDLE:
+                    playbackStateString = "Player Idle";
+                    break;
+                case ExoPlayer.STATE_BUFFERING:
+                    playbackStateString = "Player Buffering";
+                    break;
+                case ExoPlayer.STATE_READY:
+                    playbackStateString = "Player Ready";
+                    break;
+                case ExoPlayer.STATE_ENDED:
+                    playbackStateString = "Player Ended";
+                    break;
+                default:
+                    playbackStateString = "Player in unknown state";
+                    Timber.wtf("Player somehow has an unknown state!?");
+                    break;
+            }
+
+            Timber.d("Playback state: %s", playbackStateString);
+            // Timber.d("called this");
+        }
+
+        @Override
+        public void onPlayerError(ExoPlaybackException error) {
+            IOException e = error.getSourceException();
+            Timber.e(error, "Error direct from exoplayer is: ");
+            Timber.e(e, "Error underlaying from exoplayer: ");
+            Timber.d("Error underlaying class name: %s", e.getClass().getName());
+            Timber.d("Error underlaying error name: %s", e.getCause().getClass().getName());
+            if (e.getCause() instanceof SocketTimeoutException) {
+                Timber.d("This is an error that can be caught!");
+                Timber.e(e, "Network connection timed out from stream");
+                Timber.d("Not retrying as not in full app");
+            }
+
+        }
+    }
+
+
 
 
     @Override
